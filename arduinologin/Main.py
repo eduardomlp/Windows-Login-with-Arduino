@@ -1,10 +1,11 @@
 import serial
 import gc
 import time
+import os
 from subprocess import Popen, PIPE
 
 passwordSequence = ''' 
-key Return 
+key Return
 key p
 key a
 key s
@@ -20,11 +21,13 @@ def SendPassword():
     p = Popen(['xte'], stdin=PIPE)
     p.communicate(input=passwordSequence)
 
+def GetSerialPorts():
+    return "/dev/"+os.popen("dmesg | egrep ttyACM | cut -f3 -d: | tail -n1").read().strip()
 
 def MainFunction():
     gc.enable()
     while True:
-        arduinoSerial = serial.Serial('/dev/ttyACM0', 9600) #/dev/ttyACM0 is the port where arduino is connected
+        arduinoSerial = serial.Serial(GetSerialPorts(), 9600) #/dev/ttyACM0 is the port where arduino is connected
         serialRead = arduinoSerial.read(4)
 
         if serialRead == "True" :
