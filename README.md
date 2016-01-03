@@ -14,4 +14,4 @@
 </ul>
 
 <h2>The Arduino circuit has to look like this:</h2>
-![alt tag](http://imgur.com/KARWDTI)
+![Arduino Circuit](/circuit.jpg)
