@@ -12,3 +12,6 @@
   <li>RFID-RC522 Sensor</li>
   <li>RFID Tag</li>
 </ul>
+
+<h2>The Arduino circuit has to look like this:</h2>
+![alt tag](http://imgur.com/KARWDTI)
